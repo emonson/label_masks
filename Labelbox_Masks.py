@@ -9,6 +9,7 @@ import os
 import warnings
 import time
 import random
+from urllib.error import HTTPError
 
 json_file = 'export-2020-06-04T17_35_33.559Z.json'
 json_path = os.path.join('.','Labelbox',json_file)
@@ -99,7 +100,13 @@ for ann in annotations:
             print('\t * Downloading mask image from server')
             # Delay just so we don't get kicked off of the server...
             time.sleep(1+2*random.random())
-            mask_img = io.imread(obj['instanceURI'])
+            try:
+                mask_img = io.imread(obj['instanceURI'])
+            except HTTPError as err:
+                with open('masks_errors.log','a') as f:
+                    f.write(image_filename + " " + mask_id + " " + str(err.status) + " " + str(err.reason) + "\n")
+                print(err.status,err.reason,mask_id)
+                continue
             # Getting a UserWarning about low-contrast image being saved: ignore
             with warnings.catch_warnings():
                 warnings.simplefilter('ignore')
