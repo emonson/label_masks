@@ -8,15 +8,18 @@ import json
 import os
 import warnings
 import time
+from datetime import datetime
 import random
 from urllib.error import HTTPError
 
-json_file = 'export-2020-06-04T17_35_33.559Z.json'
-json_path = os.path.join('.','Labelbox',json_file)
+json_file = 'export-2020-06-11T13_02_29.334Z.json'
+data_dir = os.path.join('.','LabelboxMasks')
 
-image_dir = os.path.join('.','Labelbox','images')
-mask_dir = os.path.join('.','Labelbox','masks')
-masked_feature_dir = os.path.join('.','Labelbox','masked_features')
+json_path = os.path.join(data_dir,json_file)
+image_dir = os.path.join(data_dir,'images')
+mask_dir = os.path.join(data_dir,'masks')
+masked_feature_dir = os.path.join(data_dir,'masked_features')
+log_path = os.path.join(data_dir,'masks_errors.log')
 
 # ### JSON Schema
 # 
@@ -42,8 +45,13 @@ masked_feature_dir = os.path.join('.','Labelbox','masked_features')
 def bbox2(img):
     rows = np.any(img, axis=1)
     cols = np.any(img, axis=0)
-    rmin, rmax = np.where(rows)[0][[0, -1]]
-    cmin, cmax = np.where(cols)[0][[0, -1]]
+    try:
+        rmin, rmax = np.where(rows)[0][[0, -1]]
+        cmin, cmax = np.where(cols)[0][[0, -1]]
+    except IndexError:
+        # NOTE: Not sure this is the right decision on what to return for blank mask
+        rmin, rmax = (0,0)
+        cmin, cmax = (0,0) 
     return (rmin,rmax+1), (cmin,cmax+1)
 
 # Load JSON
@@ -70,6 +78,8 @@ for ann in annotations:
     # ### Read first from downloaded mask files, then URI
     for obj in ann['Label']['objects']:
         mask_id = obj['featureId']
+        # This ID gives HTTP error, which slows down progress – skipping
+        if mask_id == "ckaprb4dq03zm0zbn2618g536": continue
         print('\t',mask_id)
         mask_dest_dir = os.path.join(mask_dir, img_subdir)
         mask_path = os.path.join(mask_dest_dir, mask_id+'.png')
@@ -99,12 +109,13 @@ for ann in annotations:
         else:
             print('\t * Downloading mask image from server')
             # Delay just so we don't get kicked off of the server...
-            time.sleep(1+2*random.random())
+            time.sleep(1+1*random.random())
             try:
                 mask_img = io.imread(obj['instanceURI'])
             except HTTPError as err:
-                with open('masks_errors.log','a') as f:
-                    f.write(image_filename + " " + mask_id + " " + str(err.status) + " " + str(err.reason) + "\n")
+                with open(log_path,'a') as f:
+                    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    f.write(now+" "+image_filename+" "+mask_id+" "+str(err.status)+" "+str(err.reason)+"\n")
                 print(err.status,err.reason,mask_id)
                 continue
             # Getting a UserWarning about low-contrast image being saved: ignore
@@ -114,6 +125,10 @@ for ann in annotations:
 
         # Create cropped, alpha-masked image feature
         (rmin,rmax),(cmin,cmax) = bbox2(mask_img[:,:,3])
+        if (rmax-rmin)<=1:
+            with open('masks_errors.log','a') as f:
+                now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                f.write(now+" "+image_filename+" "+mask_id+" Blank mask!!\n")
         img_masked = np.zeros((rmax-rmin,cmax-cmin,4), dtype=np.uint8)
         img_masked[:,:,:3] = img[slice(rmin,rmax), slice(cmin,cmax), :3]
         img_masked[:,:,3] = mask_img[slice(rmin,rmax), slice(cmin,cmax), 3]
