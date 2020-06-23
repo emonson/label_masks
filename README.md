@@ -35,6 +35,10 @@ conda activate mask
 
 ## Running the code
 
+*Note that I've included a sample of the data directories and output that I describe
+below, but not the entire output of running the scripts. The Jupyter notebooks
+are just sandbox test code where I worked out the code for the real scripts.*
+
 ### Labelbox
 
 The Labelbox script only requires the JSON export. It will download everything else
