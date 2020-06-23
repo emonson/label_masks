@@ -56,8 +56,9 @@ python Supervisely_masks.py
 
 The Supervisely script relies on the workspace export you get by 
 `Download as -> .json + images`. That archive (.tar file) should be expanded, and
-the folder created should sit in the same directory as the script. I don't think you
-should have to edit the paths beyond this unless you don't like the default folder names.
+the folder created should sit in the same directory as the script. You then need to 
+edit the main data directory name in the script to match the project name 
+before running.
 
 ```
 python Supervisely_masks.py
