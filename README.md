@@ -49,7 +49,7 @@ The script itself should be in the same directory as the data directory (not wit
 the data directory).
 
 ```
-python Supervisely_masks.py
+python Labelbox_masks.py
 ```
 
 ### Supervisely
