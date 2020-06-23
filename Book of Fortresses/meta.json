@@ -1,0 +1,720 @@
+{
+    "classes": [
+        {
+            "title": "Flag",
+            "shape": "any",
+            "color": "#D0021B",
+            "geometry_config": {}
+        },
+        {
+            "title": "Hill or landform",
+            "shape": "any",
+            "color": "#763244",
+            "geometry_config": {}
+        },
+        {
+            "title": "Sky",
+            "shape": "any",
+            "color": "#A1CCFF",
+            "geometry_config": {}
+        },
+        {
+            "title": "Roof",
+            "shape": "any",
+            "color": "#C7AB93",
+            "geometry_config": {}
+        },
+        {
+            "title": "Watercraft by method of propulsion",
+            "shape": "any",
+            "color": "#A8296D",
+            "geometry_config": {}
+        },
+        {
+            "title": "Christian religious building",
+            "shape": "any",
+            "color": "#9013FE",
+            "geometry_config": {}
+        },
+        {
+            "title": "Tree",
+            "shape": "any",
+            "color": "#529900",
+            "geometry_config": {}
+        },
+        {
+            "title": "Rocks",
+            "shape": "any",
+            "color": "#4A1C82",
+            "geometry_config": {}
+        },
+        {
+            "title": "Bodies of water",
+            "shape": "any",
+            "color": "#138B6F",
+            "geometry_config": {}
+        },
+        {
+            "title": "Gallows and pillories",
+            "shape": "any",
+            "color": "#B00707",
+            "geometry_config": {}
+        },
+        {
+            "title": "Path",
+            "shape": "any",
+            "color": "#AF7FE6",
+            "geometry_config": {}
+        },
+        {
+            "title": "Dry Moat",
+            "shape": "any",
+            "color": "#4A4A4A",
+            "geometry_config": {}
+        },
+        {
+            "title": "(Fortification) Chimney",
+            "shape": "any",
+            "color": "#FBC02D",
+            "geometry_config": {}
+        },
+        {
+            "title": "House part",
+            "shape": "any",
+            "color": "#BC8215",
+            "geometry_config": {}
+        },
+        {
+            "title": "(Fortification) Atalaya",
+            "shape": "any",
+            "color": "#CD2D85",
+            "geometry_config": {}
+        },
+        {
+            "title": "(Fortification) Breteche'",
+            "shape": "any",
+            "color": "#7165CD",
+            "geometry_config": {}
+        },
+        {
+            "title": "(Fortification) Scaffolding",
+            "shape": "any",
+            "color": "#D3AA78",
+            "geometry_config": {}
+        },
+        {
+            "title": "People",
+            "shape": "any",
+            "color": "#9A21A1",
+            "geometry_config": {}
+        },
+        {
+            "title": "(Fortification) Tower",
+            "shape": "any",
+            "color": "#41A3D8",
+            "geometry_config": {}
+        },
+        {
+            "title": "Container",
+            "shape": "polygon",
+            "color": "#F8E71C",
+            "geometry_config": {}
+        },
+        {
+            "title": "Scale Bar",
+            "shape": "line",
+            "color": "#1EFA73",
+            "geometry_config": {}
+        },
+        {
+            "title": "Animals",
+            "shape": "any",
+            "color": "#F56BC7",
+            "geometry_config": {}
+        },
+        {
+            "title": "Mills, Bridges, Wells and Troughs",
+            "shape": "any",
+            "color": "#155B99",
+            "geometry_config": {}
+        },
+        {
+            "title": "Crosses (Religious Monuments)",
+            "shape": "any",
+            "color": "#3BE34E",
+            "geometry_config": {}
+        },
+        {
+            "title": "(Fortification) Interior building (not a house)",
+            "shape": "any",
+            "color": "#C752AB",
+            "geometry_config": {}
+        },
+        {
+            "title": "(Fortification) Keep",
+            "shape": "any",
+            "color": "#1445B8",
+            "geometry_config": {}
+        },
+        {
+            "title": "Location (Latitude, Longitude)",
+            "shape": "point",
+            "color": "#2B8B23",
+            "geometry_config": {}
+        },
+        {
+            "title": "(Fortification) Wall",
+            "shape": "any",
+            "color": "#22AA88",
+            "geometry_config": {}
+        },
+        {
+            "title": "Secondary Site",
+            "shape": "any",
+            "color": "#A4FE3E",
+            "geometry_config": {}
+        },
+        {
+            "title": "Fields, fences and non-fortified walls",
+            "shape": "any",
+            "color": "#F8E71C",
+            "geometry_config": {}
+        }
+    ],
+    "tags": [
+        {
+            "name": "* Roof Side",
+            "value_type": "oneof_string",
+            "color": "#41D33C",
+            "values": [
+                "Roof front",
+                "Roof side"
+            ]
+        },
+        {
+            "name": "* Number of rocks or trees in the container?",
+            "value_type": "any_number",
+            "color": "#E170C3"
+        },
+        {
+            "name": "* Container type",
+            "value_type": "oneof_string",
+            "color": "#9B3665",
+            "values": [
+                "Trees",
+                "Reeds",
+                "(Landform container) Cliff - (Collection of rocks)",
+                "Short Grass",
+                "Labelbox Container"
+            ]
+        },
+        {
+            "name": "* Landform type",
+            "value_type": "oneof_string",
+            "color": "#D5CF53",
+            "values": [
+                "Hill",
+                "Beach (stippled)",
+                "Plain (unfenced field, vacant land)",
+                "Mountain (craggy)"
+            ]
+        },
+        {
+            "name": "* Vessel Type",
+            "value_type": "oneof_string",
+            "color": "#C5D392",
+            "values": [
+                "Ship",
+                "Rowboat",
+                "Small Sailboat",
+                "Canoe"
+            ]
+        },
+        {
+            "name": "Crenellations",
+            "value_type": "none",
+            "color": "#CACA3F"
+        },
+        {
+            "name": "Porch",
+            "value_type": "none",
+            "color": "#2F2579"
+        },
+        {
+            "name": "Window (Round)",
+            "value_type": "none",
+            "color": "#3A2BB1"
+        },
+        {
+            "name": "Sign or symbol",
+            "value_type": "none",
+            "color": "#CE86D5"
+        },
+        {
+            "name": "* Drawbridge or river bridge?",
+            "value_type": "oneof_string",
+            "color": "#EF8E1F",
+            "values": [
+                "Drawbridge",
+                "River bridge"
+            ]
+        },
+        {
+            "name": "* Castle wall or city wall?",
+            "value_type": "oneof_string",
+            "color": "#AB6CEA",
+            "values": [
+                "Castle wall",
+                "City wall"
+            ]
+        },
+        {
+            "name": "* Singular or sample from a group?",
+            "value_type": "oneof_string",
+            "color": "#78E3B5",
+            "values": [
+                "Single",
+                "Sample from a group"
+            ]
+        },
+        {
+            "name": "Albarrana (An Arched bridge connecting a tower to the walls)",
+            "value_type": "none",
+            "color": "#E23C3C"
+        },
+        {
+            "name": "* Merlon shape?",
+            "value_type": "oneof_string",
+            "color": "#8E9C26",
+            "values": [
+                "Flat",
+                "Pointed"
+            ]
+        },
+        {
+            "name": "* Religious building type?",
+            "value_type": "oneof_string",
+            "color": "#542880",
+            "values": [
+                "Church (Large, with tower)",
+                "Chapel (Small, with tower)",
+                "Hermitage (Very small, no tower)",
+                "Bell Tower (If separate from facade)",
+                "Round tower (Attached to a facade)",
+                "Tombstone"
+            ]
+        },
+        {
+            "name": "* River, Ocean or Pond?",
+            "value_type": "oneof_string",
+            "color": "#24C62C",
+            "values": [
+                "River",
+                "Ocean",
+                "Pond"
+            ]
+        },
+        {
+            "name": "Horizontal banding",
+            "value_type": "none",
+            "color": "#81D11F"
+        },
+        {
+            "name": "* Tower Shape?",
+            "value_type": "oneof_string",
+            "color": "#5E60CF",
+            "values": [
+                "Rectangular",
+                "Round",
+                "Polygonal"
+            ]
+        },
+        {
+            "name": "Window (Round-headed)",
+            "value_type": "none",
+            "color": "#52E3FA"
+        },
+        {
+            "name": "* Front Facade, Side Facade, Round,  Eave, Top, or Back side?",
+            "value_type": "oneof_string",
+            "color": "#8F3254",
+            "values": [
+                "Front facade",
+                "Side facade",
+                "Eave",
+                "Top",
+                "Back side",
+                "Round facade",
+                "Roof (round)",
+                "Chimney front",
+                "Chimney side",
+                "Chimney round",
+                "Underside",
+                "Wheel"
+            ]
+        },
+        {
+            "name": "* Curved wall or straight?",
+            "value_type": "oneof_string",
+            "color": "#4832C3",
+            "values": [
+                "Curved (Horizontal only)",
+                "Curved (Vertical - following terrain - only)",
+                "Curved (Horizontal and vertical)",
+                "Straight"
+            ]
+        },
+        {
+            "name": "* Hill or mountain location (Fore, middle, background?)",
+            "value_type": "oneof_string",
+            "color": "#26719C",
+            "values": [
+                "Foreground",
+                "Middleground",
+                "Background"
+            ]
+        },
+        {
+            "name": "* Number of Merlons?",
+            "value_type": "any_number",
+            "color": "#4B51FB"
+        },
+        {
+            "name": "Stone courses",
+            "value_type": "none",
+            "color": "#2BF776"
+        },
+        {
+            "name": "* Coursed, blank or both?",
+            "value_type": "oneof_string",
+            "color": "#A9C86F",
+            "values": [
+                "Coursed",
+                "Blank",
+                "Both"
+            ]
+        },
+        {
+            "name": "Arrow slits (Individual)",
+            "value_type": "none",
+            "color": "#CA62DF"
+        },
+        {
+            "name": "* Person type?",
+            "value_type": "oneof_string",
+            "color": "#3B57BF",
+            "values": [
+                "Duarte de Armas on horseback",
+                "Duarte de Armas off his horse",
+                "Footman",
+                "Peasant",
+                "Rower",
+                "Hung \"Criminal\""
+            ]
+        },
+        {
+            "name": "* Secondary Site Type",
+            "value_type": "oneof_string",
+            "color": "#2D657C",
+            "values": [
+                "Background fortress - Castile",
+                "Background fortress - Portugal",
+                "Hilltop ruins",
+                "Foreground fortress - Castile"
+            ]
+        },
+        {
+            "name": "Window (Rectangular)",
+            "value_type": "none",
+            "color": "#3D6D99"
+        },
+        {
+            "name": "Embrasures",
+            "value_type": "none",
+            "color": "#459D25"
+        },
+        {
+            "name": "* Contains nails?",
+            "value_type": "oneof_string",
+            "color": "#A87DE8",
+            "values": [
+                "Has visible nails",
+                "No visible nails"
+            ]
+        },
+        {
+            "name": "* Ruined or intact?",
+            "value_type": "oneof_string",
+            "color": "#882033",
+            "values": [
+                "Ruined",
+                "Intact"
+            ]
+        },
+        {
+            "name": "* Mill, Bridge, Well or Trough?",
+            "value_type": "oneof_string",
+            "color": "#4C6ECD",
+            "values": [
+                "Mill",
+                "Bridge",
+                "Well",
+                "Trough"
+            ]
+        },
+        {
+            "name": "* Empty or visible hanging person?",
+            "value_type": "oneof_string",
+            "color": "#51D296",
+            "values": [
+                "Empty",
+                "Visible hanging person"
+            ]
+        },
+        {
+            "name": "* Gallows shape?",
+            "value_type": "oneof_string",
+            "color": "#F2508E",
+            "values": [
+                "Two supports",
+                "Three supports",
+                "Crenellated building"
+            ]
+        },
+        {
+            "name": "* Outer-most (low) wall, Outer ward wall or Inner ward wall?",
+            "value_type": "oneof_string",
+            "color": "#1EC260",
+            "values": [
+                "Outermost (low) wall",
+                "Outer ward wall",
+                "Inner ward wall (There may not be an inner ward)"
+            ]
+        },
+        {
+            "name": "Belltower top",
+            "value_type": "none",
+            "color": "#E6759B"
+        },
+        {
+            "name": "* Bell tower shape?",
+            "value_type": "oneof_string",
+            "color": "#31BFFC",
+            "values": [
+                "Polygonal (Similar to a castle tower in scale)",
+                "Rectangular (Similar to a castle tower in scale)",
+                "Campanario (bell wall)"
+            ]
+        },
+        {
+            "name": "Arrow slits (Tripled)",
+            "value_type": "none",
+            "color": "#C64AD3"
+        },
+        {
+            "name": "Porta Falsa",
+            "value_type": "none",
+            "color": "#43D1D6"
+        },
+        {
+            "name": "Window (Peaked)",
+            "value_type": "none",
+            "color": "#208851"
+        },
+        {
+            "name": "Window (Grilled)",
+            "value_type": "none",
+            "color": "#04F127"
+        },
+        {
+            "name": "* Crenellated, flat or both?",
+            "value_type": "oneof_string",
+            "color": "#BF6D08",
+            "values": [
+                "Crenellated",
+                "Flat",
+                "Both"
+            ]
+        },
+        {
+            "name": "Door (Round-headed)",
+            "value_type": "none",
+            "color": "#354497"
+        },
+        {
+            "name": "Door (Flat-headed)",
+            "value_type": "none",
+            "color": "#A72A60"
+        },
+        {
+            "name": "* Gallows or Pillory?",
+            "value_type": "oneof_string",
+            "color": "#2F7F69",
+            "values": [
+                "Gallows",
+                "Pillory"
+            ]
+        },
+        {
+            "name": "* Tree Type",
+            "value_type": "oneof_string",
+            "color": "#3D994E",
+            "values": [
+                "Deciduous (Most common, broccoli-like)",
+                "Cyprus (Sharply pointed)",
+                "Olives (Shorter, bent)",
+                "Round-topped (Lollypop-like)",
+                "Palm (Visible fronds - Portelo2)",
+                "Dead (Branches only)",
+                "Reeds"
+            ]
+        },
+        {
+            "name": "Ladder or stairs",
+            "value_type": "none",
+            "color": "#8BA437"
+        },
+        {
+            "name": "Corbelled corner turrets",
+            "value_type": "none",
+            "color": "#71D07B"
+        },
+        {
+            "name": "* Field area, fence or wall type?",
+            "value_type": "oneof_string",
+            "color": "#B201A3",
+            "values": [
+                "Field area",
+                "Fence",
+                "Stone wall",
+                "Retaining wall"
+            ]
+        },
+        {
+            "name": "Buttresses",
+            "value_type": "none",
+            "color": "#B04050"
+        },
+        {
+            "name": "Heraldry",
+            "value_type": "none",
+            "color": "#3E25F8"
+        },
+        {
+            "name": "Machicolations",
+            "value_type": "none",
+            "color": "#DD46C4"
+        },
+        {
+            "name": "* Solitary or shrined?",
+            "value_type": "oneof_string",
+            "color": "#4B4EF1",
+            "values": [
+                "Solitary",
+                "Shrined"
+            ]
+        },
+        {
+            "name": "Breteche'",
+            "value_type": "none",
+            "color": "#8E48EF"
+        },
+        {
+            "name": "Splayed base (Plinth)",
+            "value_type": "none",
+            "color": "#4A5BF7"
+        },
+        {
+            "name": "Arched Buttress",
+            "value_type": "none",
+            "color": "#B952FE"
+        },
+        {
+            "name": "* Animal type?",
+            "value_type": "oneof_string",
+            "color": "#E1F35E",
+            "values": [
+                "Duarte de Armas' horse (Only if not mounted)",
+                "Sheep",
+                "Bird",
+                "Pack Horse"
+            ]
+        },
+        {
+            "name": "* Keep Shape?",
+            "value_type": "oneof_string",
+            "color": "#F12D13",
+            "values": [
+                "Rectangular",
+                "Polygonal"
+            ]
+        },
+        {
+            "name": "Door (Fancy Manueline style)",
+            "value_type": "none",
+            "color": "#9672DA"
+        },
+        {
+            "name": "* Partially occluded or Complete?",
+            "value_type": "oneof_string",
+            "color": "#07CA93",
+            "values": [
+                "Partially Occluded",
+                "Complete"
+            ]
+        },
+        {
+            "name": "* Roof Style",
+            "value_type": "oneof_string",
+            "color": "#E1E45E",
+            "values": [
+                "Crosshatched (Tile)",
+                "Parallel wavy lines (Thatch)",
+                "Large curving tiles (Stone?)"
+            ]
+        },
+        {
+            "name": "* Flag shape",
+            "value_type": "oneof_string",
+            "color": "#F28069",
+            "values": [
+                "Rectangular",
+                "Triangular"
+            ]
+        },
+        {
+            "name": "* Flag Affiliation",
+            "value_type": "oneof_string",
+            "color": "#50E3C2",
+            "values": [
+                "Portugal",
+                "Castile",
+                "Military Order"
+            ]
+        },
+        {
+            "name": "Length in meters",
+            "value_type": "any_number",
+            "color": "#22F145"
+        },
+        {
+            "name": "Latitude and Longitude",
+            "value_type": "any_string",
+            "color": "#7320F8"
+        },
+        {
+            "name": "* Roof structure type",
+            "value_type": "oneof_string",
+            "color": "#192BF5",
+            "values": [
+                "House",
+                "Keep",
+                "Tower",
+                "Interior castle building",
+                "Church",
+                "Belltower",
+                "Mill"
+            ]
+        }
+    ]
+}
