@@ -63,3 +63,24 @@ before running.
 ```
 python Supervisely_masks.py
 ```
+
+### Labelbox Containers
+
+Supervisely has the concept of container objects, but Labelbox doesn't have that
+built in. This script runs through the Labelbox JSON export, and for each image
+gathers the objects with a title that has "container" in them. Then, it compares
+each feature object to the containers to see whether it overlaps completely with one
+of them. If it does, the `featureId` of the parent container object is recorded
+in the `instance` field of the feature.
+
+The code is complicated slightly so it will run faster: Before testing whether the 
+pixels of two objects overlap, it first tests to see if their bounding boxes overlap,
+because this is a *much* faster test, and can quickly exclude bad container candidates.
+
+Before running, you should edit the name of the JSON file, and the name of the output
+JSON file. **Dont' write over the original!**
+
+```
+python Labelbox_Containers.py
+```
+
