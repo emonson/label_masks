@@ -12,7 +12,7 @@ from datetime import datetime
 import random
 from urllib.error import HTTPError
 
-json_file = 'export-2020-06-18T18_33_42.036Z.json'
+json_file = 'export-2020-07-23T01_23_49.887Z.json'
 data_dir = os.path.join('.','LabelboxMasks')
 
 json_path = os.path.join(data_dir,json_file)
@@ -79,7 +79,7 @@ for ann in annotations:
     for obj in ann['Label']['objects']:
         mask_id = obj['featureId']
         # This ID gives HTTP error, which slows down progress – skipping
-        if mask_id in ['ckb16dq3w00l80ya3b9b7bn7z',"ckaprb4dq03zm0zbn2618g536"] : continue
+        if mask_id in ['ckb16dq3w00l80ya3b9b7bn7z'] : continue
         print('\t',mask_id)
         mask_dest_dir = os.path.join(mask_dir, img_subdir)
         mask_path = os.path.join(mask_dest_dir, mask_id+'.png')
