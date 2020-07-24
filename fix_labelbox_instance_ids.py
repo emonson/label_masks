@@ -9,6 +9,7 @@
 
 import json
 import os
+import copy
 
 json_file = 'export-2020-07-23T01_23_49.887Z_instance.json'
 output_json_file = 'export-2020-07-23T01_23_49.887Z_instanceFixed.json'
@@ -53,7 +54,25 @@ for ann_idx, ann in enumerate(annotations):
             
             for child_idx, child_id in child_tuples_list:
                 annotations[ann_idx]['Label']['objects'][child_idx]['instance'] = new_instance_id
-        
-# Write out JSON after all instances have been recorded
+
+
+# Remove all of the container objects by creating a new data structure
+# Doing it this way because I'm not sure how to safely remove objects from a list
+#  during iteration through its elements...
+
+output_annotations = []
+ 
+for ann_idx, ann in enumerate(annotations):
+    # Need to make a real copy of the object
+    # or Python will insert a reference to the original object
+    output_annotations.append(copy.deepcopy(ann))
+    # Reset 'objects' to empty list, then will only copy over non-containers
+    output_annotations[ann_idx]['Label']['objects'] = []
+    for obj_idx, obj in enumerate(ann['Label']['objects']):
+        if 'container' not in obj['title']:
+            output_annotations[ann_idx]['Label']['objects'].append(obj)             
+
+    
+# Write out new JSON file
 with open(os.path.join(data_dir, output_json_file), 'w', encoding='utf-8') as f:
-    json.dump(annotations, f, ensure_ascii=False, indent=4)
+    json.dump(output_annotations, f, ensure_ascii=False, indent=4)

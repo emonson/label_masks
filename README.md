@@ -84,3 +84,19 @@ JSON file. **Dont' write over the original!**
 python Labelbox_Containers.py
 ```
 
+#### Fixing the instance IDs
+
+While parent container objects were created in Labelbox to group features by spatial overlap,
+Supervisely uses a parent-less model of grouping where one sibling object plays the role
+of the parent (also to itself). To fix the container `instance` IDs to the sibling scheme
+and remove the container objects, run:
+
+```
+python fix_labelbox_instance_ids.py
+```
+
+### Labelbox to Supervisely IDs demonstration
+
+Labelbox uses a 24-character combination of lowercase ascii letters and digits as IDs.
+Supervisely uses 9-digit integers. A method for deterministically (reproducibly) translating
+Labelbox IDs to Supervisely type IDs is demonstrated in `labelbox_to_supervisely_ids.py`.
