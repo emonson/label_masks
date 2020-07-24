@@ -133,5 +133,5 @@ for ann_idx, ann in enumerate(annotations):
                 print('no container match found')
 
 # Write out JSON after all instances have been recorded
-with open(output_json_file, 'w', encoding='utf-8') as f:
+with open(os.path.join(data_dir, output_json_file), 'w', encoding='utf-8') as f:
     json.dump(annotations, f, ensure_ascii=False, indent=4)
