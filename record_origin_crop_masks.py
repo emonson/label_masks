@@ -114,10 +114,10 @@ for ann_idx, ann in enumerate(annotations):
         mask_cropped_white = np.broadcast_to(mask_cropped[...,None], mask_cropped.shape+(4,))        
         
         # Record mask origin in JSON
-        annotations[ann_idx]['Label']['objects'][obj_idx]['origin'] = [rmin,cmin]
+        annotations[ann_idx]['Label']['objects'][obj_idx]['origin'] = [int(rmin),int(cmin)]
         
         # Save cropped mask as PNG
-        io.imsave(cropped_mask_path, mask_cropped_white)
+        # io.imsave(cropped_mask_path, mask_cropped_white)
 
 # Write out new JSON file
 with open(os.path.join(data_dir, output_json_file), 'w', encoding='utf-8') as f:
