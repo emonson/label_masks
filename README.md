@@ -77,8 +77,8 @@ The code is complicated slightly so it will run faster: Before testing whether t
 pixels of two objects overlap, it first tests to see if their bounding boxes overlap,
 because this is a *much* faster test, and can quickly exclude bad container candidates.
 
-Before running, you should edit the name of the JSON file, and the name of the output
-JSON file. **Dont' write over the original!**
+*Before running, you should edit the name of the JSON file, and the name of the output
+JSON file.* **Dont' write over the original!**
 
 ```
 python Labelbox_Containers.py
@@ -89,10 +89,28 @@ python Labelbox_Containers.py
 While parent container objects were created in Labelbox to group features by spatial overlap,
 Supervisely uses a parent-less model of grouping where one sibling object plays the role
 of the parent (also to itself). To fix the container `instance` IDs to the sibling scheme
-and remove the container objects, run:
+and remove the container objects, run the script below. 
+
+*Before running, you should edit the name of the JSON file, and the name of the output
+JSON file.* **Dont' write over the original!**
 
 ```
 python fix_labelbox_instance_ids.py
+```
+
+#### Recording feature "origin" and cropping masks
+
+Unfortunately, the original Labelbox_Masks.py script saved cropped image features, 
+but not cropped versions of the masks themselves. Even though it internally had to calculate
+the bounding box of the masked feature, it didn't record these coordinates to the JSON
+file. This script both saves out cropped masks and outputs a new JSON with a new `origin`
+field, which is a list of the `[row,column]` coordinates of the feature origin.
+
+*Before running, you should edit the name of the JSON file, and the name of the output
+JSON file.* **Dont' write over the original!**
+
+```
+python record_origin_crop_masks.py
 ```
 
 ### Labelbox to Supervisely IDs demonstration
