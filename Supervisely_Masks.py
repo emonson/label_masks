@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # coding: utf-8
 
 # `PIL` is really installed as `pillow`

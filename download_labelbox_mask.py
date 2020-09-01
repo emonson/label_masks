@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # coding: utf-8
 
 #  This is a test of downloading a mask image from Labelbox using an API key rather
