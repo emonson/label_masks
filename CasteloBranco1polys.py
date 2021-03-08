@@ -16,7 +16,7 @@ from shapely.geometry import Polygon
 from shapely.ops import unary_union
 
 json_file = 'castelo_branco1.jpg.json'
-output_json_file = 'castelo_branco1.jpg_poly.json'
+output_json_file = 'castelo_branco1.jpg_polyFlip.json'
 data_dir = os.path.join('.','Castelo_Branco1')
 json_path = os.path.join(data_dir,json_file)
 
@@ -75,13 +75,15 @@ for ii,ob in enumerate(annotations['objects']):
 
         # Need to subtract one for the fake pixel offset, and add origin
         # origin seems to be in a strange order
-        # NOTE: check that X and Y are right for eventual polygon
         real_coords = (coords.round(2)-1) + np.array([origin[1],origin[0]])
 
+        # NOTE: X and Y need to be flipped for final output
+        flipped_coords = np.flip(real_coords, axis=1)
+        
         # Create the new polygon
         annotations['objects'][ii]['geometryType'] = 'polygon'
         annotations['objects'][ii]['points'] = {'exterior':[], 'interior':[]}
-        annotations['objects'][ii]['points']['exterior'] = real_coords.tolist()
+        annotations['objects'][ii]['points']['exterior'] = flipped_coords.tolist()
 
 # Write out new JSON file
 with open(os.path.join(data_dir, output_json_file), 'w', encoding='utf-8') as f:
