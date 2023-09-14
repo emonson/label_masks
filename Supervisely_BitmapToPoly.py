@@ -15,10 +15,11 @@ from skimage.measure import approximate_polygon, find_contours
 from shapely.geometry import Polygon
 from shapely.ops import unary_union
 
-json_file = 'castelo_branco1.jpg.json'
-output_json_file = 'castelo_branco1.jpg_polyFlip.json'
-data_dir = os.path.join('.','Castelo_Branco1')
-json_path = os.path.join(data_dir,json_file)
+json_file = 'Goa.jpg.png.json'
+output_json_file = 'Goa.jpg.png_poly.json'
+
+data_dir = os.path.join('.','Goa')
+json_dir = os.path.join(data_dir,'ann')
 
 
 def base64_2_mask(s):
@@ -27,7 +28,7 @@ def base64_2_mask(s):
     mask = cv2.imdecode(n, cv2.IMREAD_UNCHANGED)[:, :, 3]
     return mask
 
-with open(json_path, 'r', encoding='utf-8') as f:
+with open(os.path.join(json_dir,json_file), 'r', encoding='utf-8') as f:
     annotations = json.load(f)
 
 n_objects = len(annotations['objects'])
@@ -86,5 +87,5 @@ for ii,ob in enumerate(annotations['objects']):
         annotations['objects'][ii]['points']['exterior'] = flipped_coords.tolist()
 
 # Write out new JSON file
-with open(os.path.join(data_dir, output_json_file), 'w', encoding='utf-8') as f:
+with open(os.path.join(json_dir,output_json_file), 'w', encoding='utf-8') as f:
     json.dump(annotations, f, ensure_ascii=False, indent=4)    

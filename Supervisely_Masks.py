@@ -20,7 +20,7 @@ import io
 import base64
 
 
-data_dir = os.path.join('.','Book of Fortresses','Book of Fortresses')
+data_dir = os.path.join('.','Goa')
 ann_dir = os.path.join(data_dir,'ann')
 img_dir = os.path.join(data_dir,'img')
 mask_dir = os.path.join(data_dir,'masks')
