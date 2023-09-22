@@ -24,7 +24,7 @@ I would recommend creating a new environment for doing this work with
 ("mask" is an arbitrary name):
 
 ```
-conda create --name mask opencv pillow scikit-image numpy zlib
+conda create --name mask opencv pillow scikit-image numpy zlib shapely
 ```
 
 and then activate that environment with
